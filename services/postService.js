@@ -1,4 +1,4 @@
-const postService = require("../dao/postDao")
+const postDao = require("../dao/postDao")
 module.exports={
 	get(connection){
 		return postDao.get(connection)
@@ -11,7 +11,7 @@ module.exports={
 update(connection, idPost, post){
 	const updatedPost = {
 		post: post.post,
-		title: post.tite+ '(modified)'
+		title: post.title,
 	}
 	return postDao.update(connection, idPost, updatedPost)
 },

@@ -23,7 +23,8 @@ const initPostRoute = function(server, connection){
     	}
     },*/
     handler: (request, h) => {
-        return postService.insert(connection, request.payload);
+        return postService.insert(connection, request.payload)
+        .catch(error => console.log(error));
     }
 })
 
@@ -31,7 +32,8 @@ const initPostRoute = function(server, connection){
     method: "PUT",
     path: "/note/{idPost}",
     handler: (request, h) => {
-        return postService.update(connection, request.params.idPost, request.payload);
+        return postService.update(connection, request.params.idPost, request.payload)
+        .catch(error => console.log(error));;
     }
 })
 

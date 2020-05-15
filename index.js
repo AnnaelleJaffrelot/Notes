@@ -1,11 +1,5 @@
 var mysql = require('mysql');
  
-
-
-/*conn.connect(function(err) {
-  if (err) throw err;
-  console.log("Connected!");
-});*/
  // inversion de dépendnance en l'appeleant une fois et en la passant aux différents comoposants
 
 'use strict';
@@ -13,9 +7,7 @@ var mysql = require('mysql');
 const Hapi = require('@hapi/hapi');
 const Joi = require("joi");
 const postRoute = require("./routes/postRoute")
-/*const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/test',
- {useNewUrlParser: true, useUnifiedTopology: true});*/
+
 
 const init = async () => {
 
@@ -24,7 +16,7 @@ const init = async () => {
         host: 'localhost'
     });
 
-    var conn = mysql.createConnection({
+  var connection = mysql.createConnection({
   database: 'notes',
   host: "localhost",
   user: "root",
@@ -39,9 +31,9 @@ const init = async () => {
  	console.log(err);
  	process.exit(1);
  });
- init();
 
   
     await server.start();
     console.log('Server running on %s', server.info.uri);
 };
+init();
