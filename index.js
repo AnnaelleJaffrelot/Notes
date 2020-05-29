@@ -16,7 +16,7 @@ const init = async () => {
         host: '0.0.0.0'
     });
 
-  var connection = mysql.createConnection({
+  var connection = mysql.createPool({
   database: process.env.MYSQL_DATABASE || 'notes',
   host: process.env.MYSQL_HOST || "localhost",
   user: process.env.MYSQL_USER || "root",
