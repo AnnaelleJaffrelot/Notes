@@ -12,15 +12,15 @@ const postRoute = require("./routes/postRoute")
 const init = async () => {
 
     const server = Hapi.server({
-        port: 3000,
-        host: 'localhost'
+        port: process.env.PORT || 3000,
+        host: '0.0.0.0'
     });
 
   var connection = mysql.createConnection({
-  database: 'notes',
-  host: "localhost",
-  user: "root",
-  password: ""
+  database: process.env.MYSQL_DATABASE || 'notes',
+  host: process.env.MYSQL_HOST || "localhost",
+  user: process.env.MYSQL_USER || "root",
+  password: process.env.MYSQL_PASSWORD || ""
 });
  connection.connect();
  postRoute(server, connection)
