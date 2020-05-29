@@ -20,9 +20,10 @@ const init = async () => {
   database: process.env.MYSQL_DATABASE || 'notes',
   host: process.env.MYSQL_HOST || "localhost",
   user: process.env.MYSQL_USER || "root",
-  password: process.env.MYSQL_PASSWORD || ""
+  password: process.env.MYSQL_PASSWORD || "",
+  connectionLimit : 10
 });
- connection.connect();
+
  postRoute(server, connection)
  await server.start();
  console.log('Server running on %s', server.info.uri);
