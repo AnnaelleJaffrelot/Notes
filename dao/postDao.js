@@ -10,6 +10,7 @@ module.exports = {
 
 	insert(connection, post) {
 	return new Promise((resolve,reject) =>{
+		console.log(post)
 	connection.query('INSERT INTO notes (title, post) VALUES (?,?)', [post.title,post.post], function (error, results, fields){
 		if (error) return reject(error);
 		resolve(results)

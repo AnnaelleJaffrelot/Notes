@@ -5,7 +5,7 @@ module.exports={
 		
 	},
 	insert(connection, post){
-	return postDao.insert(connection, post)
+	return postDao.insert(connection, JSON.parse(post))
 },
 
 update(connection, idPost, post){

@@ -3,29 +3,26 @@ const postService = require("../services/postService")
 const initPostRoute = function(server, connection){
 	
 	server.route({
-    method: "GET",
-    path: "/notes",
-    handler: (request, h) => {
-        return postService.get(connection);
-    }
+        method: "GET",
+        path: "/notes",
+        options: {
+            cors: true,
+            handler: (request, h) => {
+                return postService.get(connection);}
+        }, 
+
 })
 
 
 	server.route({
+        options: {
+            cors: true,
+            handler: (request, h) => {
+                return postService.insert(connection, request.payload)
+                .catch(error => console.log(error));}
+        }, 
     method: "POST",
     path: "/note",
-   /* config:{
-    	validate:{
-    		payload:{
-    			name : Joi.string().required(),
-    			content : Joi.string().required(),
-    		}
-    	}
-    },*/
-    handler: (request, h) => {
-        return postService.insert(connection, request.payload)
-        .catch(error => console.log(error));
-    }
 })
 
 	server.route({
