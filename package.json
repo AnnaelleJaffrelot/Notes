@@ -14,7 +14,7 @@
   "author": "Annaelle Jaffrelot",
   "license": "ISC",
   "dependencies": {
-    "@hapi/hapi": "^19.1.1",
+    "@hapi/hapi": "^21.4.9",
     "hapi-cors": "^1.0.3",
     "joi": "^14.3.1",
     "mysql": "^2.18.1"
